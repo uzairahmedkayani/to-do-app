@@ -37,13 +37,13 @@ return (
                 />
                 <label
                     htmlFor={`note${props.id}`}
-                    className="ml-3 text-gray-800 font-medium cursor-pointer select-none"
+                    className={`ml-3 font-medium cursor-pointer select-none ${props.mode === "dark" ? "text-white" : "text-gray-800"}`}
                 >
                     {props.text}
                 </label>
             </div>
             <div className="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition">
-                <span className="note-action-icon">
+                <span className="note-action-icon" onClick={() => props.onEdit && props.onEdit(props.id, props.text)}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5 text-gray-400 hover:text-purple-600 cursor-pointer"
