@@ -10,7 +10,7 @@ import emptyLight from "./assets/empty-light.png";
 import AddNote from "./components/AddNote";
 
 function App() {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
   const [notes, setNotes] = useState([
     { id: 1, text: "Note# 1", checked: false },
     { id: 2, text: "Note# 2", checked: false },
@@ -93,7 +93,7 @@ function App() {
       {/* Edit Note Modal */}
       {editingNoteId !== null && (
         <div className="fixed inset-0 flex items-center justify-center bg-opacity-70 z-50">
-          <div className={`rounded-lg shadow-lg p-4 sm:p-6 md:p-8 w-[95vw] max-w-xs sm:max-w-md md:max-w-lg flex flex-col z-60 ${mode === "dark" ? "bg-[#23272f] text-white" : "bg-white text-black"}`}>
+          <div className={`rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 w-[95vw] max-w-xs sm:max-w-md md:max-w-lg flex flex-col z-60 ${mode === "dark" ? "bg-[#23272f] text-white" : "bg-white text-black"}`}>
             <h2 className="text-lg sm:text-xl font-bold mb-4 text-center">Edit note</h2>
             <form onSubmit={handleEditModalSubmit} className="flex flex-col gap-4">
               <input
@@ -126,19 +126,20 @@ function App() {
       <div
         className={`container min-w-screen min-h-screen flex flex-col items-center pt-[100px] px-2 sm:px-4 md:px-0 ${
           mode === "dark" ? "bg-[#181818]" : "bg-white"
-        } text-black ${
+        } text-black transition-colors duration-500 ${
           modalOpen || editingNoteId !== null ? "pointer-events-none select-none opacity-60" : ""
         }`}
+        style={{ transition: 'background-color 0.5s, color 0.5s' }}
       >
-        <div className="w-full sm:w-[90vw] md:w-[65vw] h-auto flex flex-col p-2 sm:p-4 md:p-[20px] shadow-black/50 rounded-lg">
+        <div className='w-full sm:w-[90vw] md:w-[65vw] h-auto flex flex-col p-2 sm:p-4 md:p-[20px] '>
           <h1
-            className={`text-lg sm:text-2xl md:text-[26px] font-bold mb-5 mx-auto ${
+            className={`text-lg sm:text-2xl md:text-[26px] font-bold mb-5 mx-auto transition-colors duration-500 ${
               mode === "dark" ? "text-white" : "text-[#252525]"
             }`}
           >
             TO DO APP
           </h1>
-          <div className="search-bar-container mb-5 flex flex-col sm:flex-row items-center justify-center gap-2 w-full sm:w-[90%] md:w-[65%] mx-auto">
+          <div className="search-bar-container mb-5 flex flex-col md:flex-row items-center justify-center gap-2 w-full sm:w-[90%] md:w-[65%] mx-auto">
             <SearchBar
               value={search}
               onChange={handleSearchChange}

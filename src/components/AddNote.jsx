@@ -31,19 +31,19 @@ export default function AddNote({ modalOpen, setModalOpen, onAddNote, mode }) {
                                 onChange={e => setNewNoteText(e.target.value)}
                                 autoFocus
                             />
-                            <div className="flex gap-2 justify-end">
+                            <div className="flex gap-2 justify-between mt-40">
                                 <button
                                     type="button"
-                                    className={`px-4 py-2 rounded ${mode === "dark" ? "bg-gray-700 text-gray-200 hover:bg-gray-600" : "bg-gray-300 text-gray-700 hover:bg-gray-400"}`}
+                                    className={`px-4 py-2 rounded ${mode === "dark" ? "text-[#6C63FF] outline-1 outline-[#6C63FF] hover:bg-[#a1a1a1]" : "bg-gray-300 text-gray-700 hover:bg-gray-400"}`}
                                     onClick={handleModalCancel}
                                 >
-                                    Cancel
+                                    CANCEL
                                 </button>
                                 <button
                                     type="submit"
                                     className={`px-4 py-2 rounded ${mode === "dark" ? "bg-[#6C63FF] text-white hover:bg-[#4f4b93]" : "bg-[#6C63FF] text-white hover:bg-[#4f4b93]"}`}
                                 >
-                                    Submit
+                                    APPLY
                                 </button>
                             </div>
                         </form>

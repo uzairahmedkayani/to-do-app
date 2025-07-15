@@ -30,7 +30,7 @@ return (
             <div className="flex items-center flex-1">
                 <input
                     type="checkbox"
-                    className="form-checkbox rounded-sm border-2 border-purple-500 text-purple-600 focus:ring-purple-500 h-5 w-5"
+                    className="form-checkbox rounded-sm border-2 border-[#6C63FF] text-[#6C63FF] focus:ring-[#6C63FF] h-5 w-5"
                     id={`note${props.id}`}
                     checked={props.checked}
                     onChange={handleCheck}
